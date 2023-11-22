@@ -8,6 +8,8 @@ import AuthSocialButton from "./AuthSocialButton";
 
 import { BsFacebook } from "react-icons/bs";
 import { BsGoogle } from 'react-icons/bs'
+import axios from "axios";
+import {toast} from "react-hot-toast";
 type variant = 'LOGIN' | 'REGISTER'
 
 const AuthForm = () => {
@@ -40,7 +42,9 @@ const AuthForm = () => {
         setIsloading(true)
 
         if (variant === 'REGISTER') {
-            // AXIOS 
+            axios.post('/api/register', data)
+            .catch(() => toast.error('Something went Wrong! '))
+            .finally(() => setIsloading(false))
         }
  
         if (variant === 'LOGIN') {
