@@ -10,6 +10,10 @@ import { BsFacebook } from "react-icons/bs";
 import { BsGoogle } from 'react-icons/bs'
 import axios from "axios";
 import {toast} from "react-hot-toast";
+import { signIn } from 'next-auth/react'
+
+
+
 type variant = 'LOGIN' | 'REGISTER'
 
 const AuthForm = () => {
@@ -48,12 +52,37 @@ const AuthForm = () => {
         }
  
         if (variant === 'LOGIN') {
-        //    AUTH
+            signIn('credentials', {
+                ...data,
+                redirect: false
+            })
+
+            .then((callback) => {
+                if(callback?.error){
+                    toast.error('Invalid Credentials')
+                }
+                if(callback?.ok && !callback?.error){
+                    toast.success('Successfully Logged In')
+                }
+            })
+
+            .finally(() => setIsloading(false))
         }
      }
 
      const socialAction = (action: string) => {
         setIsloading(true)
+
+        signIn(action, {redirect: false})
+        .then((callback) => {
+            if(callback?.error){
+                toast.error('Invalid Credentials')
+            }
+            if(callback?.ok && !callback?.error){
+                toast.success('Successfully Logged In')
+            }
+        })
+        .finally(() => setIsloading(false))
      }
     return ( 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -112,7 +141,7 @@ const AuthForm = () => {
                 <div className="mt-6 flex gap-2">
                     <AuthSocialButton icon={BsFacebook}
                                       
-                                      onClick={() => socialAction('facebook')}
+                                      onClick={() => socialAction('github')}
                     />
                     <AuthSocialButton icon={BsGoogle}
                                       onClick={() => socialAction('google')}
