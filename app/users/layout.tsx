@@ -6,6 +6,7 @@ export default async function UsersLayout({
     children: React.ReactNode
 }){
     return(
+        
         <Sidebbar>
             <div className="h-full">
                 { children }
