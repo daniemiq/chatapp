@@ -11,6 +11,7 @@ import { BsGoogle } from 'react-icons/bs'
 import axios from "axios";
 import {toast} from "react-hot-toast";
 import { signIn, useSession } from 'next-auth/react'
+import { useRouter } from "next/navigation";
 
 
 
@@ -22,11 +23,13 @@ const AuthForm = () => {
     const [variant, setVariant] = useState<variant>('LOGIN')
     const [isLoading, setIsloading] = useState(false)
 
+    const router = useRouter()
+
     useEffect(() => {
         if(session?.status === 'authenticated'){
-            console.log("Authenticated buddy ton't worry")
+            router.push('/users')
         }
-    }, [])
+    }, [session.status, router])
 
     const toggleVariant = useCallback(() => {
         if(variant === 'LOGIN') {
@@ -55,6 +58,7 @@ const AuthForm = () => {
 
         if (variant === 'REGISTER') {
             axios.post('/api/register', data)
+            .then(() => signIn('credentials', data))
             .catch(() => toast.error('Something went Wrong! '))
             .finally(() => setIsloading(false))
         }
@@ -71,6 +75,7 @@ const AuthForm = () => {
                 }
                 if(callback?.ok && !callback?.error){
                     toast.success('Successfully Logged In')
+                    router.push('/users')
                 }
             })
 
