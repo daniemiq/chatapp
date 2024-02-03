@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is the project done using nodejs language with nextjs as a framework to simplifiy the developent
 
-## Getting Started
+the coperate members on this project
+1. Daniel M Msemakweli 2102302228616
+2. Bulabo L Paulo 2102302226933
 
-First, run the development server:
+ABOUT THE PROJECT
+The project aims to create a chat room where students can chat and exchange some media files such as pictures.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+FEATURES OF PROJECT
+1. LOGIN AND REGISTRATION
+   - Student must login to access the service.
+   - If no account he/she must create an account.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. COVERSATIONS
+   - Once loged in a person will be able to create a private conversation with other registered in users.
+   - Also a person can create a group chat by adding other registered users .
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. REAL TIME NOTIFICATIONS
+   - The project implemented the real time feature to send messages and photos in imediate. 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. APIs IN THE PROJECT 
+The project uses some APIs to accomplish the desired goal 
+   - MONGO DATABASE: for data storage.
+   - GOOGLE AUTHENTICATION: for register and login.
+   - GITHUB AUTHENTICATIN: for register and login.
+   - PUSHER API: for real time events.
 
-## Learn More
+The project also uses other packages apart from next js modules
 
-To learn more about Next.js, take a look at the following resources:
+INSTALLATION AND RUNNING OF THE PROJECT
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+create the accounts on all APIs providers so that to get keys to replace in the .env file.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+run: 'npm install' to install all required packages used.
 
-## Deploy on Vercel
+run: 'npm run dev' to start the project
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
