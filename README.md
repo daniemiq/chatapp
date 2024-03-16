@@ -1,8 +1,3 @@
-This is the project done using nodejs language with nextjs as a framework to simplifiy the developent
-
-the coperate members on this project
-1. Daniel M Msemakweli 2102302228616
-2. Bulabo L Paulo 2102302226933
 
 ABOUT THE PROJECT
 The project aims to create a chat room where students can chat and exchange some media files such as pictures.
